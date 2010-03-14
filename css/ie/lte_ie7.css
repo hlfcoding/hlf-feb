@@ -1,0 +1,50 @@
+/** GROUP - hasLayout/dimension fix - http://tinyurl.com/has-layout **/ 
+.core-clearfix,
+.core-text dl,
+.core-form-row,
+.core-row-menu,
+.core-hang-container,
+.core-flush-container,
+.core-grid-row {
+    zoom: 1;
+}
+
+/** GROUP - rounding fix - IE7 rounds up pixel result **/ 
+.core-grid .core-col-set-12 > .core-col-2,
+.core-grid .core-col-set-21 > .core-col-1 {
+    width: 66.99%;
+}
+.core-grid .core-col-set-12 > .core-col-1,
+.core-grid .core-col-set-21 > .core-col-2 {
+    width: 32.99%;
+}
+.core-grid .core-col-set-13 > .core-col-2,
+.core-grid .core-col-set-31 > .core-col-1 {
+    width: 74.99%;
+}
+.core-form.core-extended > .core-form-row > .label-container,
+.core-form.core-extended > .core-form-row > .aside-container,
+.core-grid .core-col-set-13 > .core-col-1,
+.core-grid .core-col-set-31 > .core-col-2,
+.core-grid .core-col-set-112 > .core-col-1, 
+.core-grid .core-col-set-112 > .core-col-2, 
+.core-grid .core-col-set-121 > .core-col-1, 
+.core-grid .core-col-set-121 > .core-col-3, 
+.core-grid .core-col-set-211 > .core-col-2, 
+.core-grid .core-col-set-211 > .core-col-3 {
+    width: 24.99%;
+}
+.core-form.core-extended > .core-form-row > .field-container,
+.core-grid .core-col-set-112 > .core-col-3,
+.core-grid .core-col-set-121 > .core-col-2,
+.core-grid .core-col-set-211 > .core-col-1,
+.core-grid .core-col-set-2 > .core-col {
+    width: 49.99%;
+}
+.core-grid .core-col-set-3 > .core-col {
+    width: 33.25%;
+}
+.core-grid .core-col-set-4 > .core-col {
+    width: 24.875%;
+}
+

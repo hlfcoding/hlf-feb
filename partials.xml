@@ -1,0 +1,80 @@
+<?xml version='1.0' ?>
+<partials>
+    <head>
+        <site_title>FEB Framework</site_title>
+        <author_name>Peng Xiao Wang</author_name>
+        <author_email>peng@pengxwang.com</author_email>
+    </head>
+    <page_head>
+        <logo>%(site_name)s</logo>
+        <tagline><![CDATA[ ~&nbsp; Light <em>&amp;</em> Rapid Web Templating Framework &nbsp;~]]></tagline>
+    </page_head>
+    <navigation>
+        <panels>
+            <panel>
+                <name>Home</name>
+                <links>
+                    <link>
+                        <name>Home</name>
+                        <url>%(site_url)s</url>
+                    </link>
+                </links>
+            </panel>
+            <panel>
+                <name>Getting Started</name>
+                <links>
+                    <link>
+                        <name>1. Write Content and URLs</name>
+                        <url>%(site_url)s/howto/1</url>
+                    </link>
+                    <link>
+                        <name>2. Write Partials</name>
+                        <url>%(site_url)s/howto/2</url>
+                    </link>
+                    <link>
+                        <name>3. Write Styles and Scripts</name>
+                        <url>%(site_url)s/howto/3</url>
+                    </link>
+                    <link>
+                        <name>4. Write Pages</name>
+                        <url>%(site_url)s/howto/4</url>
+                    </link>
+                </links>
+            </panel>
+            <panel>
+                <name>Links</name>
+                <links>
+                    <link>
+                        <name>Peng X Wang</name>
+                        <url>http://pengxwang.com</url>
+                    </link>
+                    <link>
+                        <name>Get it from GitHub</name>
+                        <url>http://github.com/hlfcoding/hlf-feb</url>
+                    </link>
+                    <link>
+                        <name abbr="Pre Hypertext Processor">PHP</name>
+                        <url>http://us.php.net/manual/en/</url>
+                    </link>
+                    <link>
+                        <name>PHP SimpleXML Library</name>
+                        <url>http://us.php.net/manual/en/book.simplexml.php</url>
+                    </link>
+                    <link>
+                        <name abbr="HyperText Markup Language">HTML</name>
+                        <url>http://w3schools.com/tags/default.asp</url>
+                    </link>
+                    <link>
+                        <name abbr="Cascading Style Sheets">CSS</name>
+                        <url>http://w3schools.com/css/css_reference.asp</url>
+                    </link>
+                </links>
+            </panel>
+        </panels>
+    </navigation>
+    <page_foot>
+        <copyright>
+            <![CDATA[ &copy; %(current_year)d <a href="mailto:%(author_email)s">%(author_name)s</a> ]]>
+        </copyright>
+    </page_foot>
+</partials>

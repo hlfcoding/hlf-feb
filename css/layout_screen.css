@@ -1,0 +1,488 @@
+/**
+ * The Screen Layout Stylesheet
+ * @see         README.markdown
+ * @base        CSS Framework 1.2
+ * @author      peng@pengxwang.com
+ * @requires    IE7+, FF3+, Safari3+, Chrome3+
+**/
+/**
+    Table of Contents
+    Core
+        Reset
+        Helper
+        Pattern
+        Form
+        Wrapper
+    Custom
+**/
+/** START   Core */
+/** START   Core > 1. Reset */
+
+html, body, div, object, iframe, hr,
+h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, cite, code, 
+a, span, abbr, acronym, address, big, del, dfn, em, img, ins, 
+kbd, q, samp, small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 transparent; 
+    outline: 0;
+    margin: 0;
+    padding: 0;	
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+/*:focus { */
+button:focus, a:focus,
+a:hover, a:active {
+    /** #PATCH - accessibility **/
+    outline: 0;
+}
+body {
+    line-height: 1;
+    cursor: default;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+table { 
+    border-collapse: separate; 
+    border-spacing: 0; 
+}
+ul, ol, li { 
+    list-style: none; 
+}
+th, 
+h1, h2, h3, h4, h5, h6, 
+b, i, address, caption, cite, code, dfn, var  { 
+    font-style: normal; 
+    font-weight: normal; 
+}
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+em { font-weight: normal; }
+strong { font-style: normal; }
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+
+/* END      Core > 1. Reset **/
+/** START   Core > 2. Helper */
+
+html, body, div, object, iframe,
+h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, cite, code, 
+a, span, abbr, acronym, address, big, del, dfn, em, img, ins, 
+kbd, q, samp, small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    /* quick border */
+    border-width: 0; 
+    border-style: solid;
+}
+.core-hidden {
+    display: none;
+}
+#the-page .core-em *,
+.core-em,
+em { 
+    font-style: italic;
+}
+#the-page .core-strong *,
+.core-strong
+strong { 
+    font-weight: bold;
+}
+.core-caps {
+    text-transform: uppercase;
+}
+caption, th, td { 
+    text-align: left; 
+    vertical-align: middle; 
+}
+.core-center {
+    text-align: center;
+}
+.core-replaced {
+    display: block; 
+    text-indent: -9999em;
+    overflow: hidden;
+}
+.core-center .core-replaced {
+    text-align: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+.core-clearer { 
+    clear: both;
+    line-height: 1px;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+}
+.core-clearfix {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;    
+}
+#the-page .core-inline {
+    display: inline;
+}
+#the-page .core-context {
+    position: relative;
+}
+#the-page .core-empty {
+    padding: 0;
+    margin: 0;
+}
+
+/* END      Core > 2. Helper **/
+/** START   Core > 3. Pattern */
+/** START   Core > 3. Pattern > 1. Floating Content */
+
+.core-hang-left,
+.core-flush-left {
+    float: left;
+}
+.core-hang-right,
+.core-flush-right {
+    float: right;
+}
+/** #Implementation - of .core-clearfix **/ 
+.core-hang-container:after,
+.core-flush-container:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.core-hang-left {
+    padding-right: 1em;
+}
+.core-hang-right {
+    padding-left: 1em;
+}
+    .core-hang-left.core-extended, 
+    .core-hang-left.core-extended + .core-hang-next, /* padding-left required */
+    .core-hang-right.core-extended,
+    .core-hang-right.core-extended + .core-hang-next { /* padding-right required */
+        padding-top: 1em;
+        padding-bottom: 1em;
+    } 
+.core-hang-right.core-extended img,
+.core-hang-left.core-extended img {
+    display: block;
+}
+
+/* END      Core > 3. Pattern > 1. Floating Content **/
+/** START   Core > 3. Pattern > 2. Grid */
+
+.core-grid {
+    position: relative;
+}
+    .core-grid > .core-grid-row {
+        display: block;
+    }
+    /** #Implementation - of .core-clearfix **/ 
+    .core-grid > .core-grid-row:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+        .core-grid .core-col {
+            float: left;
+        }
+        .core-grid.core-extended > .core-gridrow > .core-col {
+            padding: 1em;
+        }
+        /** GROUP - .core-grid column widths **/ 
+        .core-grid .core-col-set-12 > .core-col-2,
+        .core-grid .core-col-set-21 > .core-col-1 {
+            width: 67%;
+        }
+        .core-grid .core-col-set-12 > .core-col-1,
+        .core-grid .core-col-set-21 > .core-col-2 {
+            width: 33%;
+        }
+        .core-grid .core-col-set-13 > .core-col-2,
+        .core-grid .core-col-set-31 > .core-col-1 {
+            width: 75%;
+        }
+        .core-grid .core-col-set-4 > .core-col,
+        .core-grid .core-col-set-13 > .core-col-1,
+        .core-grid .core-col-set-31 > .core-col-2,
+        .core-grid .core-col-set-112 > .core-col-1, 
+        .core-grid .core-col-set-112 > .core-col-2, 
+        .core-grid .core-col-set-121 > .core-col-1, 
+        .core-grid .core-col-set-121 > .core-col-3, 
+        .core-grid .core-col-set-211 > .core-col-2, 
+        .core-grid .core-col-set-211 > .core-col-3 {
+            width: 25%;
+        }
+        .core-grid .core-col-set-112 > .core-col-3,
+        .core-grid .core-col-set-121 > .core-col-2,
+        .core-grid .core-col-set-211 > .core-col-1,
+        .core-grid .core-col-set-2 > .core-col {
+            width: 50%;
+        }
+        .core-grid .core-col-set-3 > .core-col {
+            width: 33.3333%;
+        }
+
+/* END      Core > 3. Pattern > 2. Grid **/
+/** START   Core > 3. Pattern > 3. Box */
+
+.core-box {
+    display: block;
+}
+.core-box > .head,
+.core-box > .body,
+.core-box > .foot {
+    position: relative;
+}
+.core-box.core-extended > .head,
+.core-box.core-extended > .body,
+.core-box.core-extended > .foot {
+    padding: .5em 1em;
+}
+
+/* END      Core > 3. Pattern > 3. Box **/
+/** START   Core > 3. Pattern > 4. Menu */
+/** START   Core > 3. Pattern > 4. Menu > 1. Row */
+
+/** #Implementation - of .core-clearfix **/ 
+.core-row-menu:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.core-row-menu > li {
+    float: left;
+    display: block;
+}
+.core-row-menu.core-link-menu > li > a {
+    display: block;
+}
+.core-row-menu.core-inline-menu > dt,
+.core-row-menu.core-inline-menu > dd,
+.core-row-menu.core-inline-menu > li {
+    display: -moz-inline-box; display: inline-block;
+}
+
+/* END      Core > 3. Pattern > 4. Menu > 1. Row **/
+/** START   Core > 3. Pattern > 4. Menu > 2. Column */
+
+.core-col-menu > li {
+    display: block;
+}
+.core-col-menu.core-bullet-menu > li {
+    padding-left: 2em;
+}
+.core-col-menu.core-link-menu > li > a {
+    display: block;
+    padding: .25em .75em;
+}
+
+/* END      Core > 3. Pattern > 4. Menu > 2. Column **/
+/* END      Core > 3. Pattern > 4. Menu Pattern **/
+/** START   Core > 3. Pattern > 5. Text */
+
+.core-text p 
+.core-text blockquote {
+    padding-top: 1em;
+}
+.core-text ol > li,
+.core-text ul > li {
+    list-style-position: inside;
+    padding-left: .1em;
+}
+.core-text dl, 
+.core-text ul, 
+.core-text ol, 
+.core-text dl > dd,
+.core-text dl > dt,
+.core-text ol > li,
+.core-text ul > li {
+    padding-top: .5em;
+}
+/** #Implementation - of .core-clearfix **/ 
+.core-text dl:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.core-text dl > dt {
+    float: left;
+    width: 25%;
+}
+.core-text dl > dd {
+    display: block;
+    padding-left: 25%;
+}
+    .core-text dl > dd > *, 
+    .core-text dl > dt > *{
+        vertical-align: middle;
+    }
+
+/* END      Core > 3. Pattern > 5. Text **/
+/* END      Core > 3. Pattern **/
+/** START   Core > 4. Form */
+
+.core-form input[type="text"],
+.core-form select,
+.core-form textarea {
+    border: 1px solid #d6d6d4;
+    background-color: #ffffff;
+    font-weight: normal;
+}
+/** #CSS3 - opacity **/ 
+.core-form input[type="text"][disabled],
+.core-form select[disabled],
+.core-form textarea[disabled] {
+    opacity: 0.5; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; 
+}
+.core-form input[type="text"].invisible,
+.core-form select.invisible,
+.core-form textarea.invisible {
+    border: 0;
+}
+/** #CSS3 - resize **/ 
+.core-form textarea {
+    padding: 1em 0 1em 1em;
+    resize: vertical;
+}
+
+/* can be <table> or floats */
+.core-form.core-extended > .core-form-row > .label-container,
+.core-form.core-extended > .core-form-row > .aside-container {
+    width: 25%;
+}
+.core-form.core-extended > .core-form-row > .field-container {
+    width: 50%;
+}
+
+/* END      Core > 4. Form **/
+/** START   Core > 5. Wrapper */
+
+body,
+.page-head-container,
+.page-body-container,
+.page-foot-container {
+}
+    .doc-fixed,
+    .doc-elastic {
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .doc-fixed {
+        margin-left: auto;
+        margin-right: auto;
+    }
+        .doc-fixed.doc-small {
+            width: 720px;
+        }
+        .doc-fixed.doc-medium {
+            width: 960px;
+        }
+        .doc-fixed.doc-big {
+            width: 1200px;
+        }
+    .doc-elastic {
+        width: auto;
+    }
+        .doc-elastic.doc-small {
+            margin-left: 40px; 
+            margin-right: 40px; 
+            min-width: 720px;
+        }
+        .doc-elastic.doc-medium {
+            margin-left: 120px; 
+            margin-right: 120px; 
+            min-width: 960px;
+        }
+        .doc-elastic.doc-big {
+            margin-left: 360px; 
+            margin-right: 360px; 
+            min-width: 1200px;
+        }
+
+/* END      Core > 5. Wrapper **/
+/** START   Core > 6. Misc */
+/** START   Core > 6. Misc > 1. Line */
+
+.core-row-line {
+    border: 0;
+    border-top: 1px solid;
+    line-height: 1;
+    height: 0;
+    display: block;
+    clear: both;
+    margin: 0 auto; /* for optional width */
+}
+/** #CSS3 - opacity **/ 
+.core-row-line.core-extended {
+    border-top-color: #000000;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* END      Core > 6. Misc > 1. Line **/
+/* END      Core > 6. Misc **/
+/* END      Core **/
+/** START   FEB */
+
+a.replaced {
+    border-bottom-width: 0;
+}
+.page-head-container {
+    padding: 1em;
+}
+.page-body-container {
+    padding: 1em;
+}
+.page-foot-container {
+    padding: 1em;
+}
+    .page-foot {
+        padding-bottom: 3em;
+        border-bottom-width: .5em;
+    }
+.logo {
+    margin-top: 18px;
+}
+.core-col-1 > .logo,
+.core-col-1 > .side-content {
+    padding-right: 18px;
+}
+    .navigation .core-box > .head > .h-main {
+        border-top: 1px dotted #c6c6c4;
+        padding-top: .5em;
+        padding-left: 12px;
+    }
+.tagline,
+.main-content {
+    max-width: 800px;
+}
+.tagline {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+/* END      FEB **/

@@ -1,0 +1,28 @@
+<?xml version='1.0' ?>
+<pages>
+    <home>
+        <title>
+            Welcome
+        </title>
+        <body>
+            <prose><![CDATA[
+                <p class="lead">
+                    The <abbr title="FrontEnd Builds">FEB</abbr> Framework is a light and unobtrusive set of PHP scripts that allow you to write HTML templates, in HTML, but in a <abbr title="Don't Repeat Yourself">DRY</abbr> fashion. It also does a better job of separating content from presentation by storing content in separate XML files.
+                </p>
+            ]]></prose>
+        </body>
+    </home>
+    <fof>
+        <title>
+            Page Not Found
+        </title>
+        <body>
+            <message>
+                An error has occurred.
+            </message>
+            <prose>
+                We're sorry. The page you're looking for cannot be found.            
+            </prose>
+        </body>
+    </fof>
+</pages>
