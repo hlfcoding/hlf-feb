@@ -471,11 +471,14 @@ a.replaced {
 .core-col-1 > .side-content {
     padding-right: 18px;
 }
-    .navigation .core-box > .head > .h-main {
-        border-top: 1px dotted #c6c6c4;
-        padding-top: .5em;
-        padding-left: 12px;
-    }
+.core-col-1 > .side-content {
+    min-width: 250px;
+}
+.navigation .core-box > .head > .h-main {
+    border-top: 1px dotted #c6c6c4;
+    padding-top: .5em;
+    padding-left: 12px;
+}
 .tagline,
 .main-content {
     max-width: 800px;
