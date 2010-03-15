@@ -11,10 +11,9 @@
     <meta content="all" name="Robots"/> 
     <link rel="index" title="%(site_title)s" href="%(site_root)s" /> 
     <link rel="canonical" href="%(site_root)s" /> 
-    <link rel="shortcut icon" href="%(site_root)s/img/favicon.ico" /> 
+    <!-- <link rel="shortcut icon" href="%(site_root)s/img/favicon.ico" />  -->
 
     <title>%(page_title)s &lsaquo; %(site_title)s</title>
-
     <meta name="description" description="%(meta_description)s" />
     <meta name="keywords" description="%(meta_keywords)s" />
     %(meta_extra)s
@@ -56,6 +55,7 @@
 <?php $p['head'] = ob() ?>
 
 <hr class="page-top-edge core-row-line core-extended"/>
+<div class="page-top-wrapper">
 <div id="the-head" class="page-head-container core-grid">
     <div class="page-head core-doc-elastic core-doc-medium core-grid-row core-col-set-13">
         <div class="core-col core-col-1 core-center">
@@ -124,6 +124,7 @@
 
     </div><!-- .page-body -->
 </div><!-- .page-body-container -->
+</div><!-- .page-top-wrapper -->
 <?php $p['page_body_end'] = ob() ?>
 
 <div id="the-foot" class="page-foot-container core-grid">
