@@ -11,7 +11,9 @@
                 <?php p('main_content_start') ?>
                     <div class="body">
                         <div class="core-text">
-                            <?php e($c_page->body->prose) ?>
+                            <?php e($c_page->body->start) ?>
+                            <?php e($c_page->body->features) ?>
+                            <?php e($c_page->body->end) ?>
                         </div>
                     </div>
                 <?php p('main_content_end') ?>

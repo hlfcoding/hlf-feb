@@ -11,7 +11,10 @@
                 <?php p('main_content_start') ?>
                     <div class="body">
                         <div class="core-text">
-                            <?php e($c_page->body->system_error) ?>
+                            <?php e($c_page->body->prose) ?>
+                        </div>
+                        <div class="footnotes core-small core-em core-serif ">
+                            <?php e($c_section->body->footnote)?>
                         </div>
                     </div>
                 <?php p('main_content_end') ?>

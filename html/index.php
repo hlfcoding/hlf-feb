@@ -1,13 +1,16 @@
 <?php
 /**
  * FrontEnd Builds Framework
- * For when you just need to get the frontend done and 
- * the backend or official framework solution is unknown
+ * For when you just need the frontend done and the backend solution is unknown
  *
- * Deliverables
- *
- * @version 1.0
- * @author  peng@pengxwang.com
+ * HTML Directory Index
+ * - written with CodeIgniter syntax conventions
+ * - unless you want to change application behavior, do not modify this file
+ * 
+ * @version     1.0
+ * @author      peng@pengxwang.com
+ * @package     FEB Framework
+ * @subpackage  Core
  */
 
 $builds = scandir(realpath(dirname(__FILE__)));

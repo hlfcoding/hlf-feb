@@ -32,7 +32,7 @@ function a ($x, $n)
 
 function el ($item, $array, $default = FALSE) 
 { // safely get array item
-    if ( ! isset($array[$item]) OR $array[$item] == "")
+    if ( ! isset($array[$item]) OR $array[$item] === "")
     {
         return $default;
     }
@@ -57,6 +57,15 @@ function pp ($name)
 { // plainly output a partial
     global $p_partials;
     return array_keys(el($name, $p_partials, array()));
+}
+function el_by_attr ($xml, $value, $key = "name") 
+{ // find an xml element by an attribute
+    foreach ($xml as $child) {
+        if (el($key, $child->attributes()) == $value) {
+            return $child;
+        }
+    }
+    return false;
 }
 function dsprintf () 
 { // partial hydration workhorse
@@ -133,7 +142,7 @@ function _empty ()
                     return TRUE;
                 } 
             }
-            elseif ( ! isset($args) OR strlen(trim($args)) == 0) // check string
+            elseif ( ! isset($args) OR strlen(trim($args)) === 0) // check string
             {
                 return TRUE; 
             } 

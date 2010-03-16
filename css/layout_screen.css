@@ -191,11 +191,11 @@ caption, th, td {
 .core-grid {
     position: relative;
 }
-    .core-grid > .core-grid-row {
+    .core-grid .core-grid-row {
         display: block;
     }
     /** #Implementation - of .core-clearfix **/ 
-    .core-grid > .core-grid-row:after {
+    .core-grid .core-grid-row:after {
         content: ".";
         display: block;
         clear: both;
@@ -302,10 +302,13 @@ caption, th, td {
 /* END      Core > 3. Pattern > 4. Menu Pattern **/
 /** START   Core > 3. Pattern > 5. Text */
 
-.core-text p 
+.core-text p, 
 .core-text blockquote {
     padding-top: 1em;
 }
+    .core-text .lead {
+        padding-top: 0;
+    }
 .core-text ol > li,
 .core-text ul > li {
     list-style-position: inside;
@@ -437,11 +440,6 @@ body,
     clear: both;
     margin: 0 auto; /* for optional width */
 }
-/** #CSS3 - opacity **/ 
-.core-row-line.core-extended {
-    border-top-color: #000000;
-    border-bottom: 1px solid #ffffff;
-}
 
 /* END      Core > 6. Misc > 1. Line **/
 /* END      Core > 6. Misc **/
@@ -475,7 +473,6 @@ a.replaced {
     min-width: 250px;
 }
 .navigation .core-box > .head > .h-main {
-    border-top: 1px dotted #c6c6c4;
     padding-top: .5em;
     padding-left: 12px;
 }
@@ -484,8 +481,21 @@ a.replaced {
     max-width: 800px;
 }
 .tagline {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.core-text > .core-grid-row {
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+.core-text > .core-grid-row > .core-col {
     padding-top: 1em;
     padding-bottom: 1em;
+}
+.core-text > .core-grid-row > .core-col > * {
+    padding-right: 1em;
+    margin-right: 1em;
 }
 
 /* END      FEB **/

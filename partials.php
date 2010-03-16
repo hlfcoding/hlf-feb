@@ -16,7 +16,7 @@
     <title>%(page_title)s &lsaquo; %(site_title)s</title>
     <meta name="description" description="%(meta_description)s" />
     <meta name="keywords" description="%(meta_keywords)s" />
-    %(meta_extra)s
+    %(page_meta_extra)s
     <link href="%(site_root)s/css/layout.css" rel="stylesheet" type="text/css" media="all"/>
     <!--[if lte IE 8]>
     <link href="%(site_root)s/css/layout_screen.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -25,32 +25,27 @@
     <![endif]-->    
     <link href="%(site_root)s/css/color.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="%(site_root)s/css/type.css" rel="stylesheet" type="text/css" media="all"/>
+    %(page_style_extra)s
     <!--[if lte IE 8]>
     <link href="%(site_root)s/css/ie/lte_ie8.css" rel="stylesheet" type="text/css" media="all"/>
     <![endif]--><!--[if lte IE 7]>
     <link href="%(site_root)s/css/ie/lte_ie7.css" rel="stylesheet" type="text/css" media="all"/>
-    <![endif]-->     
-    %(style_extra)s
+    <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
     <script>
-    $(document).ready(function () 
-        {
+        jQuery(document).ready(function($) {
             // $('a').click(function (e) { e.preventDefault(); });
-            $('.ft').each(function (i, val) { if ($(this).text() == '') $(this).addClass('empty'); }); 
-            var current = $('.panel').find('a[href$="%(current_page)s"]'); 
-            if (current.length == 0 && '%(current_page)s' == 'home') { current = $('.panel').find('a[href$="index.php"]'); }
-            current.addClass('current');
-            $('#search .fText[name="search_var"]').focus(function () {
-                if ($(this).attr("value").toLowerCase() == 'search') 
-                    { $(this).attr("value", ""); }
-            }).blur(function () {
-                if ($(this).attr("value").toLowerCase() == '') 
-                    { $(this).attr("value", 'search'); }
-            });
-        }
-    );
+            $(".ft").each(function (i, val) { 
+                if ($(this).text() === "") {
+                    $(this).addClass("empty"); 
+                } 
+            }); 
+            var current = $(".panel").find("a[href$='%(current_page)s']"); 
+            if (current.length == 0 && "%(current_page)s" == "home") { current = $(".panel").find("a[href$='index.php']"); }
+            current.addClass("current");
+        });
     </script>
-    %(script_extra)s
+    %(page_script_extra)s
 </head>
 <?php $p['head'] = ob() ?>
 
@@ -91,8 +86,11 @@
                 <li>
                     <?php 
                     $abbr = is_array((array) $link->name->attributes()) 
-                        ? ' title="'.el('abbr', $link->name->attributes()).'"' 
-                        : '' 
+                        ? ' title="' . el('abbr', $link->name->attributes()) . '"' 
+                        : '';
+                    $link->url = strpos($link->url, 'http') === 0 
+                        ? $link->url
+                        : '%(site_url)s' . $link->url;
                     ?>
                     <a href="<?php echo $link->url ?>"<?php echo $abbr ?>>
                         <span><?php echo $link->name ?></span>

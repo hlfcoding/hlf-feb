@@ -5,11 +5,37 @@
             Welcome
         </title>
         <body>
-            <prose><![CDATA[
+            <start><![CDATA[
                 <p class="lead">
-                    The <abbr title="FrontEnd Builds">FEB</abbr> Framework is a light and unobtrusive set of PHP scripts that allow you to write HTML templates, in HTML, but in a <abbr title="Don't Repeat Yourself">DRY</abbr> fashion. It also does a better job of separating content from presentation by storing content in separate XML files.
+                    The <abbr title="FrontEnd Builds">FEB</abbr> Framework is a light and unobtrusive set of <attr title="Pre Hypertext Processor">PHP</attr> scripts that allow you to write HTML templates, in <abbr title="HyperText Markup Language">HTML</abbr>, but in a <abbr title="Don't Repeat Yourself">DRY</abbr> fashion. It also does a better job of separating content from presentation by storing content in separate <abbr title="eXtensible Markup Language">XML</abbr> files. The ultimate goal is not to create a robust templating framework with its own syntax , but one that is <em>easily understood</em>, <em>plays well with others</em>, and most importantly <em>light</em>. 
                 </p>
-            ]]></prose>
+            ]]></start>
+            <features><![CDATA[            
+                <div class="features core-grid-row core-col-set-3">
+                    <hr class="core-row-line"/>
+                    <div class="core-col core-col-1">
+                        <h3 class="h-sub core-serif core-em">Easily understood:</h3>
+                        <p class="core-large">Working with the content (requiring XML), and the presentation (requiring HTML, CSS, <abbr title="JavaScript and jQuery">JS</abbr>&mdash;optional) layers does not require knowing PHP. But keep in mind knowing the templating aspects of PHP is recommended, as well as the shorthand methods provided by FEB, which can help you write cleaner XML.</p>
+                    </div>
+                    <div class="core-col core-col-2">
+                        <h3 class="h-sub core-serif core-em">Plays well with others:</h3>
+                        <p class="core-large">FEB eschews using a new syntax. It requires more learning, and it limits code reuse across different frameworks. Partials in FEB can be easily wired and incorporated into an existing framework, as HTML/CSS/JS are universal across frameworks.</p>
+                    </div>
+                    <div class="core-col core-col-3">
+                        <h3 class="h-sub core-serif core-em">Light:</h3>
+                        <p class="core-large">FEB only runs off of 3 files. To get you started it also includes the pages and assets for this demo site, done in the framework. A noted package is my the very early version 1.2 of my CSS Framework; this new version does not support IE6, so the selectors are a lot more concise. </p>
+                    </div>
+                    <hr class="core-row-line"/>
+                </div><!-- end .features -->
+            ]]></features>
+            <end><![CDATA[
+                <p>
+                    FEB is also designed to serve as an makeshift static website, meaning you can put it in stage it in webhosting directory via <abbr title="File Transfer Protocol">FTP</abbr> for clients. Each page can be exported back into clean HTML files for your deliverables.
+                </p>
+                <p>
+                    Aside from these barebones features, FEB is primarily the lowest common denominator for an organizer of frontend templates. From this base, you are free to use PHP to extend any area of these scripts. Most of FEB can be scaled simply by following the existing pattern. However, keep in mind I designed FEB to be scaffolding, not the finished product. Feel free to fork the project on GitHub. 
+                </p>
+            ]]></end>
         </body>
     </home>
     <fof>
@@ -20,9 +46,67 @@
             <message>
                 An error has occurred.
             </message>
-            <prose>
-                We're sorry. The page you're looking for cannot be found.            
-            </prose>
+            <system_error><![CDATA[
+                <p class="lead">
+                    Looks like the page you're looking for cannot be found.
+                    <br/>This is probably because your pages.xml file is not up to date.
+                </p>
+            ]]></system_error>
         </body>
     </fof>
+    <howto>
+        <sub_page name="step-1">
+            <title>Step 1: Content &amp; Routing</title>
+            <body>
+                <prose><![CDATA[
+                    <p class="lead">
+                        To start, you'll need to dump some content into your XML files. This also includes global pieces of data and some meta information. There is an XML file for partials and another one for pages and sections.
+                    </p>
+                ]]></prose>
+            </body>
+        </sub_page>
+        <sub_page name="step-2">
+            <title>Step 2: Markup &amp; Partials</title>
+            <body>
+                <prose><![CDATA[
+                    <p class="lead">
+                        Next you'd want to start roughing down the general semantic markup and separate them into cleaner partials when appropriate. 
+                    </p>
+                ]]></prose>
+            </body>
+        </sub_page>
+        <sub_page name="step-3">
+            <title>Step 3: Style &amp; Scripts</title>
+            <body>
+                <prose><![CDATA[
+                    <p class="lead">
+                        Improve visual and interactive design by customizing an implementation of the CSS framework and adding classes to the markup, and optionally, by adding some JavaScript.
+                    </p>
+                ]]></prose>
+            </body>
+        </sub_page>
+        <sub_page name="step-4">
+            <title>Step 4: Pages &amp; Templates</title>
+            <body>
+                <prose><![CDATA[
+                    <p class="lead">
+                        Finally, call the partials in the PHP page and section page files. Optionally, functions can be written to make things even less repetitive.
+                    </p>
+                ]]></prose>
+            </body>
+        </sub_page>
+        <sub_page name="step-4">
+            <title>Step 5: Pages &amp; Templates</title>
+            <body>
+                <prose><![CDATA[
+                    <p class="lead">
+                        Once ready, modify the `conf` file to clean and export the outputted page as HTML. In the `/html` subdirectory, the default page will index the templates for you.
+                    </p>
+                ]]></prose>
+            </body>
+        </sub_page>
+        <body>
+            <footnote>~ In progress.</footnote>
+        </body>
+    </howto>
 </pages>

@@ -33,7 +33,11 @@ $partials;      // initial storage for partials as they are set in partials.php
 $c_pages;       // content for pages
 $c_partials;    // content for partials
 $p_partials;    // final storage for all parameterized partials
+$cur_url;
 $cur_page;      // current view
+$cur_sub_page;  // current view
+$c_page;        // page content, shortcut
+$c_section;     // section content, shortcut
 $output;        // final output, can be saved as html
 
 // bootstrap
@@ -93,14 +97,24 @@ foreach ($p_partials as $_name => &$_p_partial)
 
 $c_pages = simplexml_load_file('pages.xml');
 // postback
-// TODO - subpages
-$cur_page = ced(array_shift(explode('/', trim(el('PATH_INFO', $_SERVER, 'home'), '/'))), 'home');
+$cur_url = explode('/', trim(el('PATH_INFO', $_SERVER, 'home'), '/'));
+$cur_page = ced(array_shift($cur_url), 'home');
+$cur_sub_page = ced(array_shift($cur_url), false);
 $cur_page = property_exists($c_pages, $cur_page) ? $cur_page : 'fof';
 $c_page = $c_pages->$cur_page;
+if ($cur_sub_page) {
+    $c_section = $c_page;    
+    $c_page = property_exists($c_page, 'sub_page') && $cur_sub_page
+        ? ( is_object(el($cur_sub_page - 1, $c_page->sub_page))
+            ? $c_page->sub_page[$cur_sub_page - 1]
+            : $c_pages->fof )
+        : ( el_by_attr($c_page->sub_page, $cur_sub_page) 
+            ? el_by_attr($c_page->sub_page, $cur_sub_page) 
+            : $c_pages->fof );
+}
 // prep all page vars if needed
 $p_partials['head']['page_title'] = $c_page->title;
 $p_partials['head']['current_page'] = $cur_page;
-
 // output page
 
 // save

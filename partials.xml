@@ -1,9 +1,24 @@
 <?xml version='1.0' ?>
 <partials>
     <head>
-        <site_title>FEB Framework</site_title>
-        <author_name>Peng Xiao Wang</author_name>
-        <author_email>peng@pengxwang.com</author_email>
+        <site_title global="true">FEB Framework</site_title>
+        <author_name global="true">Peng Xiao Wang</author_name>
+        <author_email global="true">peng@pengxwang.com</author_email>
+        <meta_description>
+            The FrontEnd Builds Framework is a light &amp; rapid web templating framework.
+        </meta_description>
+        <meta_keywords>
+            pengxwang, PHP, HTML, CSS, templating, web templates, open source, github
+        </meta_keywords>
+        <meta_extra><![CDATA[
+            
+        ]]></meta_extra><!-- if preferred, you can add extra markup here -->
+        <style_extra><![CDATA[
+            
+        ]]></style_extra>
+        <script_extra><![CDATA[
+            
+        ]]></script_extra>
     </head>
     <page_head>
         <logo>%(site_name)s</logo>
@@ -16,7 +31,7 @@
                 <links>
                     <link>
                         <name>Home</name>
-                        <url>%(site_url)s</url>
+                        <url></url>
                     </link>
                 </links>
             </panel>
@@ -24,30 +39,30 @@
                 <name>Getting Started</name>
                 <links>
                     <link>
-                        <name>1. Write Content and URLs</name>
-                        <url>%(site_url)s/howto/1</url>
+                        <name>1. Write Content &amp; URLs</name>
+                        <url>/howto/1</url>
                     </link>
                     <link>
-                        <name>2. Write Partials</name>
-                        <url>%(site_url)s/howto/2</url>
+                        <name>2. Write Markup &amp; Partials</name>
+                        <url>/howto/2</url>
                     </link>
                     <link>
-                        <name>3. Write Styles and Scripts</name>
-                        <url>%(site_url)s/howto/3</url>
+                        <name>3. Write Styles &amp; Scripts</name>
+                        <url>/howto/3</url>
                     </link>
                     <link>
-                        <name>4. Write Pages</name>
-                        <url>%(site_url)s/howto/4</url>
+                        <name>4. Write Pages &amp; Templates</name>
+                        <url>/howto/4</url>
+                    </link>
+                    <link>
+                        <name>5. Export Templates</name>
+                        <url>/howto/5</url>
                     </link>
                 </links>
             </panel>
             <panel>
                 <name>Links</name>
                 <links>
-                    <link>
-                        <name>Peng X Wang</name>
-                        <url>http://pengxwang.com</url>
-                    </link>
                     <link>
                         <name>Get it from GitHub</name>
                         <url>http://github.com/hlfcoding/hlf-feb</url>
@@ -68,13 +83,21 @@
                         <name abbr="Cascading Style Sheets">CSS</name>
                         <url>http://w3schools.com/css/css_reference.asp</url>
                     </link>
+                    <link>
+                        <name abbr="Xplatform Apache MySQL, PHP, Perl">XAMPP</name>
+                        <url>http://www.apachefriends.org/en/xampp.html</url>
+                    </link>
+                    <link>
+                        <name>About</name>
+                        <url>http://pengxwang.com</url>
+                    </link>
                 </links>
             </panel>
         </panels>
     </navigation>
     <page_foot>
         <copyright>
-            <![CDATA[ &copy; %(current_year)d <a href="mailto:%(author_email)s">%(author_name)s</a> ]]>
+            <![CDATA[ &copy; %(current_year)d <a href="mailto:%(author_email)s" title="mail me">%(author_name)s</a> ]]>
         </copyright>
     </page_foot>
 </partials>
