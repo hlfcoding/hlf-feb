@@ -16,7 +16,8 @@
 
 function e ($x) 
 { // echo
-    echo $x;
+    global $p_partials;
+    echo dsprintf($x, el('global', $p_partials, array()));
 }
 function t ($x) 
 { // trace - simple logging tool
@@ -47,11 +48,19 @@ function p ($name, $dynamic_parameters = array(), $echo = TRUE, $dump = FALSE)
     $partial = el($name, $partials, '');
     // parameters
     if ($partial_parameters = el($name, $p_partials, array())) // default empty 
-        { $partial_parameters = array_merge($partial_parameters, $dynamic_parameters); }
+    { 
+        $partial_parameters = array_merge($partial_parameters, $dynamic_parameters); 
+    }
     $partial_parameters = array_merge($partial_parameters, $p_partials['global']);
     $partial = dsprintf($partial, $partial_parameters);
-    if ($echo) { e($partial); }
-    else { return $partial; }
+    if ($echo) 
+    { 
+        e($partial); 
+    }
+    else 
+    { 
+        return $partial; 
+    }
 }
 function pp ($name)
 { // plainly output a partial
@@ -60,8 +69,10 @@ function pp ($name)
 }
 function el_by_attr ($xml, $value, $key = "name") 
 { // find an xml element by an attribute
-    foreach ($xml as $child) {
-        if (el($key, $child->attributes()) == $value) {
+    foreach ($xml as $child) 
+    {
+        if (el($key, $child->attributes()) == $value) 
+        {
             return $child;
         }
     }
@@ -73,6 +84,9 @@ function dsprintf ()
     $string = array_shift($data); // the string is the first one
     if (is_array(func_get_arg(1))) 
     { // if the second one is an array, use that
+        if (empty(func_get_arg(1))) {
+            return;
+        }
         $data = func_get_arg(1);
     }
     $used_keys = array();

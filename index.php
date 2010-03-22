@@ -45,8 +45,10 @@ $output;        // final output, can be saved as html
 // constants
 // TODO - namespace
 define('FEB_APP', true);
-define('FEB_HTML', false);
 require_once 'conf.php';
+if ( ! defined('FEB_HTML')) { 
+    define('FEB_HTML', false);
+}
 
 // initialize globals
 $partials = array();
@@ -126,7 +128,7 @@ $output = ob_get_contents();
 ob_end_clean();
 $output = clean_html($output);
 // save as html
-if (FEB_HTML) {
-    file_put_contents("html/$cur_page.html", $output, FILE_USE_INCLUDE_PATH | LOCK_EX);
+if (FEB_HTML === true) {
+    file_put_contents("html/${cur_page}${cur_sub_page}.html", $output, FILE_USE_INCLUDE_PATH | LOCK_EX);
 }
 echo $output;

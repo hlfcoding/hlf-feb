@@ -100,7 +100,7 @@
             <body>
                 <prose><![CDATA[
                     <p class="lead">
-                        Once ready, modify the `conf` file to clean and export the outputted page as HTML. In the `/html` subdirectory, the default page will index the templates for you.
+                        Once ready, modify the `conf` file to clean and export the outputted page as HTML. In the <a href="%(site_root)s/html">`/html`</a> subdirectory, the default page will index the templates for you.
                     </p>
                 ]]></prose>
             </body>
