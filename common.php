@@ -84,7 +84,7 @@ function dsprintf ()
     $string = array_shift($data); // the string is the first one
     if (is_array(func_get_arg(1))) 
     { // if the second one is an array, use that
-        if (empty(func_get_arg(1))) {
+        if (_empty(func_get_arg(1))) {
             return;
         }
         $data = func_get_arg(1);
