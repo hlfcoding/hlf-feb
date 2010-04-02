@@ -338,6 +338,7 @@ caption, th, td {
 .core-text dl > dd {
     display: block;
     padding-left: 25%;
+    padding-bottom: .25em;
 }
     .core-text dl > dd > *, 
     .core-text dl > dt > *{
